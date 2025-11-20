@@ -2,7 +2,7 @@ name: Deploy to Hostinger
 
 on:
   push:
-    branches: [ main ]   # change to master if your default branch is named master
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -10,19 +10,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy to Hostinger via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: Deploy via FTPS (Hostinger fixed)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: 86.38.243.160
+          server: travelgeographic.in          # ← use domain instead of IP
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          protocol: ftps           # Hostinger uses FTPS (FTP over SSL) on port 21
+          protocol: ftps
+          security: loose                      # ← this fixes Hostinger certificate errors
           local-dir: ./
-          server-dir: /public_html/
+          server-dir: ./                       # ← Hostinger root is ./ not /public_html/ when using domain as host
           dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/node_modules/**
-            **/README.md
-            **/deploy.yml
+          timeout: 60000
+          log-level: verbose
