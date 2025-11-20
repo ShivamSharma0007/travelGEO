@@ -1,0 +1,28 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [ main ]   # change to master if your default branch is named master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Hostinger via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: 86.38.243.160
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftps           # Hostinger uses FTPS (FTP over SSL) on port 21
+          local-dir: ./
+          server-dir: /public_html/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/node_modules/**
+            **/README.md
+            **/deploy.yml
