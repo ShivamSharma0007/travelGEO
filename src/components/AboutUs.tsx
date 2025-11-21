@@ -13,6 +13,7 @@ export function AboutUs() {
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-gray-900 text-4xl md:text-5xl mb-4">
@@ -24,11 +25,12 @@ export function AboutUs() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+
             {/* Image */}
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?w=800&h=800&fit=crop"
-                alt="Mountain Adventure" 
+                src="/hirday.jpg"
+                alt="Hirday Aukta"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -38,7 +40,6 @@ export function AboutUs() {
                 <p className="text-2xl mb-1">Hirday Aukta</p>
                 <p className="text-white/80 mb-2">Founder & Explorer</p>
 
-                {/* Instagram Button */}
                 <a
                   href="https://www.instagram.com/hirdayaukta?igsh=MWxnNnJwdTBubHF5"
                   target="_blank"
@@ -58,7 +59,6 @@ export function AboutUs() {
                     <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5Z" />
                     <circle cx="17" cy="7" r="1" />
                   </svg>
-
                   <span className="text-sm">Follow</span>
                 </a>
               </div>
@@ -102,6 +102,7 @@ export function AboutUs() {
                     </p>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -121,6 +122,7 @@ export function AboutUs() {
               );
             })}
           </div>
+
         </div>
       </div>
     </section>
