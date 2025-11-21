@@ -1,73 +1,42 @@
-import { useState } from 'react';
 import { Card } from './ui/card';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
-import { Label } from './ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 
 export function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    destination: '',
-    travelDate: '',
-    travelers: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success('Thank you! We\'ll contact you within 24 hours.');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        destination: '',
-        travelDate: '',
-        travelers: '',
-        message: ''
-      });
-      setIsSubmitting(false);
-    }, 1000);
-  };
+  const whatsappNumber = "919218009211";
+  const whatsappMessage = encodeURIComponent(
+    "Hello TravelGeographic! I'm ready to book my Shimla adventure. Please share package details, prices, and availability. Thanks!"
+  );
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-gray-900 text-4xl md:text-5xl mb-4">
-            Start Your Journey Today
+    <section id="contact" className="py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4 lg:px-8">
+
+        {/* Heading */}
+        <div className="text-center mb-16 lg:mb-24">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            Ready for Your Next Adventure?
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Fill out the form below and our travel experts will get in touch with you
+          <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 max-w-4xl mx-auto">
+            Tap below and get instant reply on WhatsApp
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <Card className="p-6 border-0 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#6B8E23]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-[#6B8E23]" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto items-start">
+
+          {/* LEFT SIDE */}
+          <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
+
+            {/* Visit Us */}
+            <Card className="p-6 lg:p-8 border-0 shadow-xl bg-white">
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <MapPin className="w-6 h-6 lg:w-8 lg:h-8 text-green-600" />
                 </div>
-                <div>
-                  <h3 className="text-gray-900 mb-2">Visit Us</h3>
-                  <p className="text-gray-600 text-sm">
+                <div className="min-w-0">
+                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 truncate">Visit Us</h3>
+                  <p className="text-base lg:text-lg text-gray-600 leading-relaxed break-words">
                     Bhattakufar<br />
                     Shimla, Himachal Pradesh<br />
                     India - 171006
@@ -76,149 +45,80 @@ export function ContactForm() {
               </div>
             </Card>
 
-            <Card className="p-6 border-0 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#6B8E23]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-[#6B8E23]" />
+            {/* Call Us */}
+            <Card className="p-6 lg:p-8 border-0 shadow-xl bg-white">
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <Phone className="w-6 h-6 lg:w-8 lg:h-8 text-green-600" />
                 </div>
-                <div>
-                  <h3 className="text-gray-900 mb-2">Call Us</h3>
-                  <p className="text-gray-600 text-sm">
-                    +91 98765 43210<br />
-                    Available 24/7
+                <div className="min-w-0">
+                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 truncate">Call Us</h3>
+                  <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
+                    +91 92180 09211<br />
+                    <span className="text-green-600 font-semibold">24×7 Available</span>
                   </p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 border-0 shadow-lg">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#6B8E23]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-[#6B8E23]" />
+            {/* Email */}
+            <Card className="p-6 lg:p-8 border-0 shadow-xl bg-white">
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <Mail className="w-6 h-6 lg:w-8 lg:h-8 text-green-600" />
                 </div>
-                <div>
-                  <h3 className="text-gray-900 mb-2">Email Us</h3>
-                  <p className="text-gray-600 text-sm">
-                    info@travelgeographic.com<br />
-                    bookings@travelgeographic.com
+                <div className="min-w-0">
+                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 truncate">Email Us</h3>
+                  <p className="text-base lg:text-lg text-gray-600 break-all">
+                    info@travelgeographic.com
                   </p>
                 </div>
               </div>
             </Card>
+
           </div>
 
-          {/* Contact Form */}
-          <Card className="lg:col-span-2 p-8 border-0 shadow-xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input 
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    required
-                  />
-                </div>
+          {/* RIGHT SIDE — BUTTON */}
+          <div className="lg:col-span-2 w-full flex justify-center order-1 lg:order-2">
 
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input 
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-              </div>
+            <Button
+              asChild
+              className="
+                w-[2050px]               /* <<< CHANGE WIDTH HERE */
+                !bg-[#010013]
+                hover:!bg-[#050019]
+                text-white
+                font-semibold
+                text-xl                   /* <<< TEXT SIZE */
+                px-8                      /* <<< SIDE PADDING */
+                py-5                      /* <<< TOP/BOTTOM PADDING */
+                rounded-xl                /* <<< CORNER RADIUS */
+                shadow-[0_0_25px_rgba(1,0,19,0.4)]
+                hover:shadow-[0_0_40px_rgba(1,0,19,0.6)]
+                flex items-center justify-center gap-3
+                transition-all duration-300 ease-out
+                hover:scale-105
+                active:scale-95
+                relative
+                overflow-hidden
+              "
+            >
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                
+                {/* Shine effect */}
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] hover:translate-x-[200%] transition-transform duration-700"></span>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input 
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+1 (555) 000-0000"
-                  />
-                </div>
+                <MessageCircle className="w-8 h-8 text-white" />
+                Send Inquiry
+              </a>
+            </Button>
 
-                <div className="space-y-2">
-                  <Label htmlFor="destination">Preferred Destination</Label>
-                  <Select value={formData.destination} onValueChange={(value) => setFormData({ ...formData, destination: value })}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a destination" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="shimla-city">Shimla City Tour</SelectItem>
-                      <SelectItem value="manali">Manali</SelectItem>
-                      <SelectItem value="kullu">Kullu Valley</SelectItem>
-                      <SelectItem value="kasauli">Kasauli</SelectItem>
-                      <SelectItem value="dharamshala">Dharamshala</SelectItem>
-                      <SelectItem value="spiti">Spiti Valley</SelectItem>
-                      <SelectItem value="custom">Custom Package</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
+          </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="travelDate">Travel Date</Label>
-                  <Input 
-                    id="travelDate"
-                    name="travelDate"
-                    type="date"
-                    value={formData.travelDate}
-                    onChange={handleChange}
-                  />
-                </div>
+          <p className="mt-6 text-center text-lg lg:text-xl text-gray-600 font-semibold w-full lg:col-span-3">
+            We reply in <span className="text-green-600">under 5 minutes</span>
+          </p>
 
-                <div className="space-y-2">
-                  <Label htmlFor="travelers">Number of Travelers</Label>
-                  <Input 
-                    id="travelers"
-                    name="travelers"
-                    type="number"
-                    min="1"
-                    value={formData.travelers}
-                    onChange={handleChange}
-                    placeholder="2"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea 
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your travel plans, vehicle preference (Cab/SUV/Tempo Traveller), and any specific requirements..."
-                  className="min-h-32"
-                />
-              </div>
-
-              <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  'Sending...'
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Inquiry
-                  </>
-                )}
-              </Button>
-            </form>
-          </Card>
         </div>
       </div>
     </section>

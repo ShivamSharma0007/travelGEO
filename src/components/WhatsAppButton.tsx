@@ -5,7 +5,9 @@ import { motion, AnimatePresence } from "motion/react";
 export function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const whatsappNumber = "919876543210";
+  // IMPORTANT: WhatsApp requires country code
+  const whatsappNumber = "919218009211";
+
   const defaultMessage =
     "Hello! I would like to inquire about your travel services.";
 
@@ -46,14 +48,10 @@ export function WhatsAppButton() {
               <div className="mb-3">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm">
-                      TG
-                    </span>
+                    <span className="text-white text-sm">TG</span>
                   </div>
                   <div>
-                    <p className="text-gray-900">
-                      TravelGeographic
-                    </p>
+                    <p className="text-gray-900">TravelGeographic</p>
                     <p className="text-xs text-gray-500">
                       Typically replies instantly
                     </p>
@@ -63,8 +61,7 @@ export function WhatsAppButton() {
 
               <div className="bg-gray-50 rounded-xl p-3 mb-3">
                 <p className="text-sm text-gray-700">
-                  👋 Hi there! Need help planning your trip?
-                  We're here to assist you!
+                  👋 Hi there! Need help planning your trip? We're here to assist you!
                 </p>
               </div>
 

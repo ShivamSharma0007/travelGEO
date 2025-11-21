@@ -32,9 +32,35 @@ export function AboutUs() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+
+              {/* Name + Instagram */}
               <div className="absolute bottom-6 left-6 text-white">
                 <p className="text-2xl mb-1">Hirday Aukta</p>
-                <p className="text-white/80">Founder & Explorer</p>
+                <p className="text-white/80 mb-2">Founder & Explorer</p>
+
+                {/* Instagram Button */}
+                <a
+                  href="https://www.instagram.com/travelgeographic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 
+                             backdrop-blur-sm px-3 py-1.5 rounded-full transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="white"
+                    strokeWidth="2"
+                  >
+                    <path d="M7 2C4.239 2 2 4.239 2 7v10c0 2.761 2.239 5 5 5h10c2.761 0 5-2.239 5-5V7c0-2.761-2.239-5-5-5H7z" />
+                    <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5Z" />
+                    <circle cx="17" cy="7" r="1" />
+                  </svg>
+
+                  <span className="text-sm">Follow</span>
+                </a>
               </div>
             </div>
 

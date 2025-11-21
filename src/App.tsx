@@ -4,7 +4,7 @@ import { Destinations } from "./components/Destinations";
 import { Services } from "./components/Services";
 import { AboutUs } from "./components/AboutUs";
 import { Testimonials } from "./components/Testimonials";
-import { Blog } from "./components/Blog"; // ⭐ Your Blog file
+import { Blog } from "./components/Blog";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
 import { WhatsAppButton } from "./components/WhatsAppButton";
@@ -16,12 +16,23 @@ export default function App() {
       <Header />
       <Hero />
       <Destinations />
-      <Services />
-      <AboutUs />
+
+      {/* ⭐ SERVICES SECTION */}
+      <div id="services">
+        <Services />
+      </div>
+
+      {/* ⭐ ABOUT US SECTION */}
+      <div id="about-us">
+        <AboutUs />
+      </div>
+
       <Testimonials />
 
-      {/* ⭐ BLOG SECTION RIGHT AFTER TESTIMONIALS */}
-      <Blog />
+      {/* ⭐ BLOG SECTION */}
+      <div id="blog">
+        <Blog />
+      </div>
 
       <ContactForm />
       <Footer />
