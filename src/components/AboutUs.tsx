@@ -40,7 +40,7 @@ export function AboutUs() {
 
                 {/* Instagram Button */}
                 <a
-                  href="https://www.instagram.com/travelgeographic"
+                  href="https://www.instagram.com/hirdayaukta?igsh=MWxnNnJwdTBubHF5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 
