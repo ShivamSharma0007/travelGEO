@@ -70,7 +70,7 @@ export function ContactForm() {
                 <div className="min-w-0">
                   <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 truncate">Email Us</h3>
                   <p className="text-base lg:text-lg text-gray-600 break-all">
-                    info@travelgeographic.com
+                    travelgeographic@outlook.com
                   </p>
                 </div>
               </div>

@@ -246,7 +246,7 @@ export function DestinationModal({ destination, isOpen, onClose }: DestinationMo
               <Button 
                 size="lg"
                 onClick={() => {
-                  const whatsappNumber = '919876543210';
+                  const whatsappNumber = '919218009211';
                   const message = `Hi! I'm interested in the ${destination.title} package. Can you provide more details?`;
                   window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
                 }}

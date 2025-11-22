@@ -55,7 +55,7 @@ export function Header() {
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2 text-gray-600">
               <Phone className="w-4 h-4" />
-              <span className="text-sm">+91 98765 43210</span>
+              <span className="text-sm">+91 9218009211</span>
             </div>
             <Button onClick={() => scrollToSection('contact')}>Book Now</Button>
           </div>
