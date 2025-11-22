@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "./ui/card";
 import { ThumbsUp, MessageCircle } from "lucide-react";
+import GoogleReviewWidget from "./GoogleReviewsCards";
 
 // Fallback testimonials if API fails
 const fallbackTestimonials = [
@@ -52,60 +53,8 @@ export function Testimonials() {
         </div>
 
         {/* Reviews */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {reviews.map((review, index) => (
-            <Card key={index} className="p-6 border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
-
-              <div className="flex items-start gap-3 mb-4">
-
-                {/* ⭐ INITIALS AVATAR INSTEAD OF IMAGE */}
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-lg"
-                  style={{
-                    backgroundColor: `#${Math.floor(
-                      review.author_name.charCodeAt(0) * 999999
-                    ).toString(16).slice(0, 6)}`
-                  }}
-                >
-                  {review.author_name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .toUpperCase()}
-                </div>
-
-                <div className="flex-1">
-                  <div className="text-gray-900">{review.author_name}</div>
-                  <div className="text-gray-500 text-sm">{review.relative_time_description}</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-1 mb-3">
-                {Array.from({ length: review.rating }).map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                ))}
-              </div>
-
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                {review.text?.substring(0, 200)}...
-              </p>
-
-              <div className="border-t pt-3 flex items-center gap-4 text-gray-500 text-sm">
-                <button className="flex items-center gap-1 hover:text-[#6B8E23] transition-colors">
-                  <ThumbsUp className="w-4 h-4" />
-                  <span>{review.rating}</span>
-                </button>
-                <button className="flex items-center gap-1 hover:text-[#6B8E23] transition-colors">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Comment</span>
-                </button>
-              </div>
-
-            </Card>
-          ))}
-        </div>
+        
+        <GoogleReviewWidget />
 
       </div>
     </section>
